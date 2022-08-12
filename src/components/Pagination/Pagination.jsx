@@ -40,7 +40,7 @@ const Pagination = (props) => {
     const buffer = new Array(props.pagesBuffer).fill(0);
 
     createEffect(() => {
-        let newBufferGap = bufferGap();
+        let newBufferGap = 0;
         if (props.totalPages - cursor() < buffer.length) {
             newBufferGap = props.totalPages - cursor() - buffer.length;
         }
