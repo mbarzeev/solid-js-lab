@@ -1,7 +1,9 @@
 import Pagination from './components/Pagination/Pagination';
 import styles from './App.module.css';
+import {attachDebugger} from '@solid-devtools/debugger';
 
 function App() {
+    attachDebugger();
     return (
         <div class={styles.App}>
             <Pagination

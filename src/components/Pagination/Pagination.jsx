@@ -1,5 +1,6 @@
-import {createEffect, createSignal, on} from 'solid-js';
+import {createEffect, createSignal, For, on} from 'solid-js';
 import styles from './Pagination.css';
+import {debugComputation} from '@solid-devtools/logger';
 
 function paginationLogic(props) {
     if (!props.totalPages) {
@@ -40,6 +41,7 @@ const Pagination = (props) => {
     const buffer = new Array(props.pagesBuffer).fill(0);
 
     createEffect(() => {
+        debugComputation();
         let newBufferGap = 0;
         if (props.totalPages - cursor() < buffer.length) {
             newBufferGap = props.totalPages - cursor() - buffer.length;
@@ -47,23 +49,21 @@ const Pagination = (props) => {
         setBufferGap(newBufferGap);
     });
 
-    console.log('Rendering');
-
     return (
         <div>
             <button onClick={goPrev} disabled={cursor() === 0}>
                 PREV
             </button>
-            {buffer.map((item, index) => {
-                const pageCursor = cursor() + index + bufferGap();
-                const className = pageCursor === cursor() ? 'selected' : '';
+            <For each={buffer}>
+                {(item, index) => {
+                    const pageCursor = () => cursor() + index() + bufferGap();
+                    const className = () => (pageCursor() === cursor() ? 'selected' : '');
 
-                return pageCursor >= 0 && pageCursor < totalPages ? (
-                    <span key={`page-${pageCursor}`} className={className}>
-                        {` [${pageCursor}] `}
-                    </span>
-                ) : null;
-            })}
+                    return pageCursor() >= 0 && pageCursor() < totalPages ? (
+                        <span class={className()}>{` [${pageCursor()}] `}</span>
+                    ) : null;
+                }}
+            </For>
             <button onClick={goNext} disabled={cursor() === totalPages - 1}>
                 NEXT
             </button>
