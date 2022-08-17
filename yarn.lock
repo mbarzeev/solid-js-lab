@@ -586,23 +586,6 @@
     "@motionone/dom" "^10.13.2"
     tslib "^2.3.1"
 
-"@solid-devtools/debugger@^0.4.0":
-  version "0.4.1"
-  resolved "https://registry.yarnpkg.com/@solid-devtools/debugger/-/debugger-0.4.1.tgz#d0c5d8f71feb4f3e1849e81da7a7af89c483631c"
-  integrity sha512-TbKSnxE5cDe/ely/yEZdc3qvkLInAVrb+Jaow/bwPk384zbbKQUG1odvDXLGsBgiqZwpdwpZUI1FoQhfCY6JOw==
-  dependencies:
-    "@solid-devtools/shared" "^0.4.0"
-    "@solid-primitives/event-bus" "^0.1.0"
-    "@solid-primitives/immutable" "^0.1.0"
-    "@solid-primitives/memo" "^0.3.0"
-    "@solid-primitives/refs" "^0.3.0"
-    "@solid-primitives/scheduled" "^1.0.0"
-    "@solid-primitives/utils" "^3.0.1"
-    object-observer "^5.0.4"
-    type-fest "^2.18.0"
-  optionalDependencies:
-    "@solid-devtools/transform" "^0.6.0"
-
 "@solid-devtools/debugger@^0.5.0", "@solid-devtools/debugger@^0.5.1":
   version "0.5.1"
   resolved "https://registry.yarnpkg.com/@solid-devtools/debugger/-/debugger-0.5.1.tgz#3553ae1c3cb50cd6d8e3ed9aedad811e9c70f05c"
@@ -647,23 +630,14 @@
   optionalDependencies:
     "@solid-devtools/transform" "^0.6.1"
 
-"@solid-devtools/logger@^0.3.0":
-  version "0.3.0"
-  resolved "https://registry.yarnpkg.com/@solid-devtools/logger/-/logger-0.3.0.tgz#19a9f09f06d6fb6f6b1e645a8568122ba8cb011d"
-  integrity sha512-v0yXbd0f6qVSsohoBZ+S4lh3xC8nQ67PGjT9kaJpWKhTYbye2tpf9zDcRhr2k6Gxg7sZPWzDp3hWQSfZAPVmLQ==
+"@solid-devtools/logger@0.4.1":
+  version "0.4.1"
+  resolved "https://registry.yarnpkg.com/@solid-devtools/logger/-/logger-0.4.1.tgz#db91f143a505c24fc07b4c67d5f4f9e166a69d7a"
+  integrity sha512-i4LY+7iNpuyDLpOEwnOeQcf+/o1z7gDrb7PD8ZVffrqFjkDcVI1kagok97TxU6yLvOr4qmw5J0fL6G4wpwuMLg==
   dependencies:
-    "@solid-devtools/debugger" "^0.4.0"
-    "@solid-devtools/shared" "^0.4.0"
+    "@solid-devtools/debugger" "^0.5.0"
+    "@solid-devtools/shared" "^0.5.0"
     "@solid-primitives/utils" "^3.0.1"
-
-"@solid-devtools/shared@^0.4.0":
-  version "0.4.0"
-  resolved "https://registry.yarnpkg.com/@solid-devtools/shared/-/shared-0.4.0.tgz#38110d158ba3e3b833e86f5bee61c363a5956db7"
-  integrity sha512-xQmKdEYPgziBp3qESL1U+6DqqXUTCNUTup6cAGe6PU9bEwHbNA/tjZoBAOi60rZij8O4Wp32/IxEOSkcKoUPyQ==
-  dependencies:
-    "@solid-primitives/utils" "^3.0.1"
-    solid-js "^1.4.8"
-    type-fest "^2.18.0"
 
 "@solid-devtools/shared@^0.5.0", "@solid-devtools/shared@^0.5.1":
   version "0.5.1"
@@ -675,17 +649,7 @@
     solid-js "^1.4.8"
     type-fest "^2.18.0"
 
-"@solid-devtools/transform@^0.6.0":
-  version "0.6.0"
-  resolved "https://registry.yarnpkg.com/@solid-devtools/transform/-/transform-0.6.0.tgz#68a3f1c17fb3bfaf156c2fbb41a0282bd15d5d84"
-  integrity sha512-M3aRMU0NGCKiJXN02NtwaDPIp7VuQRO3bo5MkoY1wBhYrmT6VuTbLfUAZiGlLLBKRbxfG1GkUA5H01NYygadrQ==
-  dependencies:
-    "@babel/core" "^7.18.10"
-    "@babel/plugin-syntax-typescript" "^7.18.6"
-    "@babel/types" "^7.18.10"
-    "@solid-devtools/shared" "^0.4.0"
-
-"@solid-devtools/transform@^0.6.1":
+"@solid-devtools/transform@0.6.1", "@solid-devtools/transform@^0.6.1":
   version "0.6.1"
   resolved "https://registry.yarnpkg.com/@solid-devtools/transform/-/transform-0.6.1.tgz#e2f9c3c4d712d2f5260e643eb3e16528c89110d2"
   integrity sha512-UrSFI6hAkk15HOVfm4GoEQiA2g7lUguXBuouflfsAELq1hFF3/o/ZOpUQyJbdZpuCQDWfh6sTvsNCfrl2QMgcA==
