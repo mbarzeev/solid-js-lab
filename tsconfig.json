@@ -1,0 +1,11 @@
+{
+    "compilerOptions": {
+        "jsx": "preserve",
+        "jsxImportSource": "solid-js",
+        "noImplicitAny": true,
+        "target": "ES6",
+        "moduleResolution": "node",
+        "allowJs": true,
+        "outDir": "build"
+    }
+}

@@ -1,0 +1,9 @@
+.pagination {
+    padding: 20px;
+}
+
+
+.selected {
+    font-weight: bolder;
+    font-style: italic;
+}

@@ -1,17 +1,32 @@
-import {createEffect, createSignal, For, on} from 'solid-js';
-import styles from './Pagination.css';
+import {Accessor, Component, createEffect, createSignal, For, on} from 'solid-js';
+import styles from './Pagination.module.css';
 import {debugComputation} from '@solid-devtools/logger';
+
+type PaginationProps = {
+    cursor?: number;
+    initialCursor?: number;
+    totalPages: number;
+    pagesBuffer: number;
+    onChange?: (value: number) => void;
+};
+
+type PaginationLogicType = {
+    cursor: Accessor<number>;
+    totalPages: number;
+    goNext: () => void;
+    goPrev: () => void;
+};
 
 const NO_TOTAL_PAGES_ERROR = 'No total pages were given';
 
-function paginationLogic(props) {
+function paginationLogic(props: PaginationProps): PaginationLogicType {
     if (!props.totalPages) {
         throw new Error(NO_TOTAL_PAGES_ERROR);
     }
 
-    const [cursor, setInternalCursor] = createSignal(props.initialCursor || 0);
+    const [cursor, setInternalCursor] = createSignal<number>(props.initialCursor || 0);
 
-    const setCursor = (newCursor) => {
+    const setCursor = (newCursor: number) => {
         if (newCursor >= 0 && newCursor < props.totalPages) {
             setInternalCursor(newCursor);
         }
@@ -37,10 +52,10 @@ function paginationLogic(props) {
     };
 }
 
-const Pagination = (props) => {
+const Pagination: Component<PaginationProps> = (props) => {
     const {cursor, totalPages, goNext, goPrev} = paginationLogic(props);
     const [bufferGap, setBufferGap] = createSignal(0);
-    const buffer = new Array(props.pagesBuffer).fill(0);
+    const buffer: number[] = new Array(props.pagesBuffer).fill(0);
 
     createEffect(() => {
         debugComputation();
@@ -52,14 +67,14 @@ const Pagination = (props) => {
     });
 
     return (
-        <div>
+        <div class={styles.pagination}>
             <button onClick={goPrev} disabled={cursor() === 0}>
                 PREV
             </button>
             <For each={buffer}>
                 {(item, index) => {
                     const pageCursor = () => cursor() + index() + bufferGap();
-                    const className = () => (pageCursor() === cursor() ? 'selected' : '');
+                    const className = () => (pageCursor() === cursor() ? styles.selected : '');
 
                     return pageCursor() >= 0 && pageCursor() < totalPages ? (
                         <span class={className()}>{` [${pageCursor()}] `}</span>
