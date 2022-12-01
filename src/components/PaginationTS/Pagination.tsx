@@ -54,7 +54,7 @@ function paginationLogic(props: PaginationProps): PaginationLogicType {
 
 const Pagination: Component<PaginationProps> = (props) => {
     const {cursor, totalPages, goNext, goPrev} = paginationLogic(props);
-    const [bufferGap, setBufferGap] = createSignal(0);
+    const [bufferGap, setBufferGap] = createSignal<number>(0);
     const buffer: number[] = new Array(props.pagesBuffer).fill(0);
 
     createEffect(() => {
